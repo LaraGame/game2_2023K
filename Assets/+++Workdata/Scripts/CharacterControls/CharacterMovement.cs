@@ -56,7 +56,7 @@ public class CharacterMovement : MonoBehaviour
     private void OnMove(InputValue inputValue)
     {
         inputDirection = inputValue.Get<float>();
-        Debug.Log("Moved`!" + inputDirection); // isDirection um es ausgegeben zubekommen
+        //Debug.Log("Moved`!" + inputDirection); // isDirection um es ausgegeben zubekommen
 
         // wenn das in der klammer steht m,ache was in den geschiffenen klammern steht
         // wenn größer als nbull dann Face right wenn nicht stimmt dann lass es
