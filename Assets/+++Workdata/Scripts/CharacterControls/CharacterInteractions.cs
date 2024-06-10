@@ -26,6 +26,11 @@ public class CharacterInteractions : MonoBehaviour
             Debug.Log("you die!");
             uiLevelManager.OnGameLose();
         }
+        else if (other.CompareTag("Taube"))
+        {
+            uiLevelManager.AddTaube();
+            Destroy(other.gameObject);
+        }
     }
     
     

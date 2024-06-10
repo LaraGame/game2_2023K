@@ -373,7 +373,7 @@ MonoBehaviour:
   buttonLevel1: {fileID: 62324727}
   buttonLevel2: {fileID: 1574846981}
   buttonLevel3: {fileID: 290957326}
-  buttonBack: {fileID: 552049219}
+  buttonMain: {fileID: 552049219}
   levelNames:
   - Level1
   - Level2
