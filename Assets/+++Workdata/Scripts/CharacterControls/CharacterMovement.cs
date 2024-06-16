@@ -9,6 +9,8 @@ public class CharacterMovement : MonoBehaviour
     private Rigidbody2D rb; // container erstellt
     private float inputDirection; //damit man es überall nutzen kann
     [SerializeField] private float jumpForce = 10f;
+    
+    
     [SerializeField] private float movementSpeed = 10f;
 
     [SerializeField] private Transform groundCheckPosition; // position wann funktsen
@@ -32,8 +34,7 @@ public class CharacterMovement : MonoBehaviour
     // sachen die sofort passieren sollen gehen in update
     void Update()
     {
-         //framecounter = framecounter + 1;
-        //Debug.Log("update...! Framenumber: " + framecounter);
+         
     }
 
     // all things Pysical go here
@@ -46,11 +47,12 @@ public class CharacterMovement : MonoBehaviour
     {
         if (Physics2D.OverlapCircle(groundCheckPosition.position, groundCheckRadius, layerGroundCheck)) // nur wenn man den Kreis bruehet dann springen sonst net
         {
-                rb.velocity =
-                    new Vector2(x: 0f, y: jumpForce); // jump hight and now it can jump/ jumpForce damit man es im inspector umschalten kann
-        //JumpCount = JumpCount + 1;
-        Debug.Log("Jump! i jumped "); //+ JumpCount + " times!");
-         }
+            rb.velocity =
+                new Vector2(x: 0f, y: jumpForce); // jump hight and now it can jump/ jumpForce damit man es im inspector umschalten kann
+            //JumpCount = JumpCount + 1;
+            Debug.Log("Jump! i jumped "); //+ JumpCount + " times!");
+        }
+        
     }
 
     private void OnMove(InputValue inputValue)

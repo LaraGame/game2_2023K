@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 
 public class UIMenu : MonoBehaviour
 {
+   
     [SerializeField] private CanvasGroup panelMain;
     [SerializeField] private CanvasGroup panelLevels;
     [SerializeField] private Button buttonLevelselection;
@@ -14,9 +16,11 @@ public class UIMenu : MonoBehaviour
     [SerializeField] private Button buttonLevel2;
     [SerializeField] private Button buttonLevel3;
     [SerializeField] private Button buttonMain;
-
+    [SerializeField] private Button buttonExit;
     [SerializeField] private string[] levelNames;
+
     
+
     void Start()
     {
         panelMain.ShowCanvasGroup();
@@ -25,6 +29,7 @@ public class UIMenu : MonoBehaviour
         buttonLevelselection.onClick.AddListener(ShowLevelSelection);
         buttonMain.onClick.AddListener(ShowMainMenu);
         buttonNewGame.onClick.AddListener(LoadLevel1);
+        buttonExit.onClick.AddListener(ExitGame);
         
         buttonLevel1.onClick.AddListener(LoadLevel1);
         buttonLevel2.onClick.AddListener(LoadLevel2);
@@ -49,7 +54,12 @@ public class UIMenu : MonoBehaviour
         }
     }
 
-   
+    void ExitGame()
+    {
+        Application.Quit();    
+    }
+    
+    
     void ShowLevelSelection()
     {
         Debug.Log("show level");
