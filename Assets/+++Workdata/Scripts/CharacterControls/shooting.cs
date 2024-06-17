@@ -10,16 +10,17 @@ public class shooting : MonoBehaviour
 
     public GameObject bullet;
     public Transform bulletTransform;
-    public bool canFire;
-    private float timer;
+    public bool canFire; // so the player can shoot
+    private float timer; // timer + time in between firing 
     public float timeBetweenFiring;
-    
+
     private Vector3 mousePos;
+
     // Start is called before the first frame update
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        
+
     }
 
     // Update is called once per frame
@@ -31,49 +32,27 @@ public class shooting : MonoBehaviour
         Vector3 rotation = mousePos - transform.position;
         // freezing the Z rotation
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        
-        transform.rotation = Quaternion.Euler(0,0, rotZ);
 
+        transform.rotation = Quaternion.Euler(0, 0, rotZ);
+
+        // can fire after a selfset time
         if (!canFire)
         {
             timer += Time.deltaTime;
             if (timer > timeBetweenFiring)
             {
+                // restart so you can fire again
                 canFire = true;
                 timer = 0;
             }
         }
-        
+
+        // if mouse is pressed than it will fire
         if (Input.GetMouseButton(0) && canFire)
         {
             canFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
         }
-        
-        
-        // wenn das in der klammer steht m,ache was in den geschiffenen klammern steht
-        // wenn größer als nbull dann Face right wenn nicht stimmt dann lass es
-        // && und   || oder
-        if (inputDirection > 0 && !isFacingRight)
-        {
-            Flip();
-        }
-        else if (inputDirection < 0 && isFacingRight)
-        {
-            Flip();
-        }
-       
     }
-    void Flip()
-    { // transform auffinden dann localscale ansehen
-        Vector3 currentScale = transform.localScale;
-        currentScale.x = currentScale.x * -1;
-        transform.localScale = currentScale;
-        // verändern dann alten currentScale in minus und setze ihn neu an
-        isFacingRight = !isFacingRight;
-        // damitz auch die richtig facing stimmt nochmal reinschreiben
-    }
-    
-    
 }
 
