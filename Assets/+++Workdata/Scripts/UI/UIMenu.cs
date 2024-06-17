@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class UIMenu : MonoBehaviour
 {
-   
+    //SerialzeFields fügen in dem Fall die Buttons oder Panel in den Inspector
+    //hinzu und man kann dann die InGame Elemente reinziehen und sie sind verbunden
     [SerializeField] private CanvasGroup panelMain;
     [SerializeField] private CanvasGroup panelLevels;
     [SerializeField] private Button buttonLevelselection;

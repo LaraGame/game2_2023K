@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class UILevelManager : MonoBehaviour
 {
-   
+    //SerialzeFields fügen in dem Fall die Buttons oder Panel in den Inspector
+    //hinzu und man kann dann die InGame Elemente reinziehen und sie sind verbunden
     [SerializeField] private CanvasGroup panelWin;
     [SerializeField] private Button buttonPlayAgainWin;
     [SerializeField] private Button buttonNextLevel;
@@ -52,7 +53,7 @@ public class UILevelManager : MonoBehaviour
         buttonNextLevel.onClick.AddListener(LoadNextLevel);
        buttonBackToMenu2.onClick.AddListener(BackToMenu);
         buttonBackToMenu1.onClick.AddListener(BackToMenu);
-        buttonBackMainMenu.onClick.AddListener(MainMenu);
+        buttonBackMainMenu.onClick.AddListener(BackToMenu);
         buttonBackLevel.onClick.AddListener(StartLevel);
     }
 
@@ -99,16 +100,14 @@ public class UILevelManager : MonoBehaviour
     }
 
     public void AddTaube()
-    {  // 
+    {  // die ++ geben an das eins dazu kommt
         taubenCount++;
+        // text wird mit dem string verbunden
         txtTaubenCount.text = taubenCount.ToString();
         
     }
 
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("Menu");
-    }
+   
     
     public void StartLevel()
     {
@@ -135,7 +134,7 @@ public static class UIExtentions
     {
         //alpha no showing screen
         //interactable cant interact anymore
-        //blockRaycast = klichraycast durchgehen
+        //blockRaycast = klich raycast durchgehen
         
         canvasGroup.alpha = 1f;
         canvasGroup.interactable = true;

@@ -9,8 +9,11 @@ public class CharacterMovement : MonoBehaviour
     private Rigidbody2D rb; // container erstellt
     private float inputDirection; //damit man es überall nutzen kann
     [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private int firstjumpcount = 2;
+    private int jumpcount;
     
-    
+    //SerialzeFields fügen in dem Fall die Buttons oder Panel in den Inspector
+    //hinzu und man kann dann die InGame Elemente reinziehen und sie sind verbunden
     [SerializeField] private float movementSpeed = 10f;
 
     [SerializeField] private Transform groundCheckPosition; // position wann funktsen
@@ -47,12 +50,17 @@ public class CharacterMovement : MonoBehaviour
     {
         if (Physics2D.OverlapCircle(groundCheckPosition.position, groundCheckRadius, layerGroundCheck)) // nur wenn man den Kreis bruehet dann springen sonst net
         {
+            jumpcount = firstjumpcount; 
+        }
+
+        if (jumpcount > 0)
+        {
             rb.velocity =
                 new Vector2(x: 0f, y: jumpForce); // jump hight and now it can jump/ jumpForce damit man es im inspector umschalten kann
             //JumpCount = JumpCount + 1;
             Debug.Log("Jump! i jumped "); //+ JumpCount + " times!");
+            jumpcount = jumpcount - 1;
         }
-        
     }
 
     private void OnMove(InputValue inputValue)
