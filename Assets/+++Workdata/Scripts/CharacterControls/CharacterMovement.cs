@@ -11,6 +11,8 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private int firstjumpcount = 2;
     private int jumpcount;
+
+ 
     
     //SerialzeFields fügen in dem Fall die Buttons oder Panel in den Inspector
     //hinzu und man kann dann die InGame Elemente reinziehen und sie sind verbunden
@@ -103,4 +105,7 @@ public class CharacterMovement : MonoBehaviour
         float isSprinting = inputValue.Get<float>(); // muss man nicht immer ranschreiben
         Debug.Log("Sprinting" + isSprinting);  //+ inputValue.Get<float>());
     }
+
+    
+    
 }
