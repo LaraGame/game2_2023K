@@ -258,6 +258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 7
   firstjumpcount: 2
+  sprintSpeed: 15
+  sneakSpeed: 2
   movementSpeed: 6
   groundCheckPosition: {fileID: 5244172936082542105}
   groundCheckRadius: 0.3

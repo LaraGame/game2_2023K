@@ -5,7 +5,7 @@ using UnityEngine;
 public class shooting : MonoBehaviour
 {
     private Camera mainCam;
-    private bool isFacingRight = true;
+  
     private float inputDirection; //damit man es überall nutzen kann
 
     public GameObject bullet;
